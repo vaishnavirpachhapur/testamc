@@ -537,12 +537,15 @@
       position: relative;
       width: 100vw;
       margin-left: calc(-50vw + 50%);
-      height: clamp(300px, 70vh, 700px);
+      height: clamp(200px, 35vh, 350px);
       margin-bottom: clamp(20px, 3vw, 40px);
       overflow: visible;
       display: flex;
       align-items: center;
       justify-content: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .globe-wrapper canvas {
@@ -1431,15 +1434,16 @@
     }
 
     .globe-section h2 {
-      font-size: clamp(1.3rem, 4vw, 2.7rem);
-      margin-bottom: clamp(12px, 2vw, 20px);
+      font-size: clamp(1.4rem, 4.5vw, 2.8rem);
+      margin-bottom: clamp(30px, 4vw, 50px);
+      color: #ffffff;
     }
 
     .globe-wrapper {
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-      height: clamp(300px, 70vh, 700px);
-      margin-bottom: clamp(20px, 3vw, 30px);
+      width: 100%;
+      max-width: 100%;
+      height: clamp(200px, 35vh, 350px);
+      margin-bottom: clamp(20px, 3vw, 40px);
     }
 
     .country-controls {
@@ -1923,11 +1927,9 @@
   <script src="https://unpkg.com/globe.gl"></script>
 
   <section class="globe-section">
-    
-    <h2>One Partner. Three Major Markets.<br><br><br></h2>
+    <h2>One Partner. Three Major Markets.</h2>
 
     <div id="globeContainer" class="globe-wrapper"></div>
-
 
     <div class="country-controls">
       <button class="country-btn" data-country="india">🇮🇳 India</button>
@@ -1942,11 +1944,11 @@
     <br><br><br><br></br></br></br>
 
     <div class="timeline-container">
-      <div class="timeline-content" style="text-align: justify;">
+      <div class="timeline-content">
         <div class="content-box show">
           <div class="content-title">Assessment</div>
           <div class="content-subtitle">Full Audit</div>
-          <ul class="content-list" style="text-align: justify;" >
+          <ul class="content-list" style="justify-items: left;">
             <li>Environment audit</li>
             <li>Gap analysis</li>
             <li>Compliance check</li>
@@ -1957,7 +1959,7 @@
         <div class="content-box">
           <div class="content-title">Opportunity</div>
           <div class="content-subtitle">Setup Phase</div>
-          <ul class="content-list" style="text-align: justify;">
+          <ul class="content-list " style="justify-items: left;">
             <li>Kick-off workshops</li>
             <li>Access setup</li>
             <li>SLA definition</li>
@@ -1968,7 +1970,7 @@
         <div class="content-box">
           <div class="content-title">Optimisation</div>
           <div class="content-subtitle">Performance</div>
-          <ul class="content-list" style="text-align: justify;">
+          <ul class="content-list" style="justify-items: left;">
             <li>Proactive monitoring</li>
             <li>Performance tuning</li>
             <li>Automation setup</li>
@@ -1979,7 +1981,7 @@
         <div class="content-box">
           <div class="content-title">Reporting</div>
           <div class="content-subtitle">Insights</div>
-          <ul class="content-list" style="text-align: justify;">
+          <ul class="content-list" style="justify-items: left;">
             <li>Monthly dashboards</li>
             <li>SLA tracking</li>
             <li>Incident analysis</li>
