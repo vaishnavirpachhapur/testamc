@@ -511,7 +511,306 @@
     }
 
     /* ========== GLOBE SECTION ========== */
+    .globe-section {
+      padding: clamp(100px, 10vw, 100px) 1%;
+      background: radial-gradient(circle at top, #0f2027, #08131c 60%);
+      text-align: center;
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .globe-section h2 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      color: #ffffff;
+      margin-bottom: clamp(40px, 6vw, 60px);
+      line-height: 1.4;
+    }
+
+    .globe-section .subtitle {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      color: #b0b0b0;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+
+    .globe-wrapper {
+      position: relative;
    
+      height: clamp(200px, 35vh, 350px);
+      margin: 0 auto clamp(20px, 3vw, 40px);
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 800px;
+    }
+
+    .globe-wrapper canvas {
+      position: relative !important;
+      width: 100%;
+      height: 100%;
+    }
+
+    .country-controls {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(10px, 2vw, 20px);
+      z-index: 20;
+      margin-top: clamp(20px, 3vw, 30px);
+      align-items: center;
+    }
+
+    .country-btn {
+      position: relative;
+      padding: clamp(10px, 1.5vw, 14px) clamp(16px, 2.5vw, 28px);
+      border-radius: clamp(30px, 5vw, 50px);
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: clamp(11px, 1.8vw, 14px);
+      letter-spacing: 0.5px;
+      color: white;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.4s ease;
+      overflow: hidden;
+    }
+
+    .country-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transform: skewX(-20deg);
+      transition: 0.6s;
+    }
+
+    .country-btn:hover::before {
+      left: 120%;
+    }
+
+    .country-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      box-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
+    }
+
+    .country-btn.active {
+      background: linear-gradient(45deg, #ff9800, #ffc107);
+      box-shadow: 0 0 25px rgba(255, 193, 7, 0.7);
+      transform: scale(1.08);
+    }
+
+    .country-btn {
+      opacity: 0;
+      animation: slideInBtn 0.8s forwards;
+    }
+
+    .country-btn:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .country-btn:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .country-btn:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes slideInBtn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .location-tooltip {
+      background: rgba(15, 32, 39, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 198, 255, 0.4);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: white;
+      font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+      line-height: 1.6;
+      white-space: normal;
+      max-width: 280px;
+      box-shadow: 0 6px 24px rgba(0, 198, 255, 0.15);
+    }
+
+    /* ========== PROCESS SECTION ========== */
+    .node-icon {
+      font-size: 22px;
+      color: #1ab49a;
+      text-align: center;
+    }
+
+    .process-section {
+      position: relative;
+      padding: 80px 5%;
+      background: white;
+      text-align: center;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .process-section h2 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: #111;
+      margin-bottom: 50px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .timeline-container {
+      position: relative;
+      max-width: 1200px;
+      margin: auto;
+      height: 300px;
+    }
+
+    .timeline-container svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Base path - light gray */
+    #basePath {
+      stroke: #e2e8f0 !important;
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+    }
+
+    /* Progress path - animated with gradient */
+    #progressPath {
+      stroke: url(#pathGradient) !important;
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+    }
+
+    /* Arrow styling */
+    #arrow {
+      fill: url(#pathGradient);
+    }
+
+    #arrow path {
+      fill: url(#pathGradient) !important;
+      stroke: none;
+    }
+
+    .timeline-path {
+      stroke: url(#pathGradient);
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+    }
+
+    .node-circle {
+      fill: white;
+      stroke: #1ab49a;
+      stroke-width: 2;
+      filter: drop-shadow(0 4px 12px rgba(26, 180, 154, 0.3));
+    }
+
+    .node-icon {
+      font-size: 18px;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+
+    .timeline-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .content-box {
+      position: absolute;
+      width: 180px;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      border: 1px solid rgba(26, 180, 154, 0.15);
+      opacity: 0;
+      transform: translateY(15px) scale(0.9);
+      transition: all 0.5s ease;
+      font-size: 0.85rem;
+    }
+
+    .content-box.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .content-box:nth-child(1) {
+      top: -180px;
+      left: 3%;
+    }
+
+    .content-box:nth-child(2) {
+      top: -180px;
+      left: 26%;
+    }
+
+    .content-box:nth-child(3) {
+      top: -180px;
+      left: 51%;
+    }
+
+    .content-box:nth-child(4) {
+      top: -170px;
+      left: 74%;
+    }
+
+    .content-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1ab49a;
+      margin-bottom: 5px;
+    }
+
+    .content-subtitle {
+      font-size: 0.7rem;
+      color: #00c9a7;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .content-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: #333;
+      line-height: 1.5;
+      padding-left: 0;
+    }
+
+    .content-list li {
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 3px;
+      color: #333;
+    }
+
+    .content-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #00c9a7;
+      font-weight: bold;
+    }
 
     /* ========== PRICING SECTION ========== */
     .pricing {
@@ -1324,7 +1623,7 @@
       }
 
       /* Globe Tablet */
-      .globe-section {
+      /* .globe-section {
         padding: clamp(50px, 10vw, 80px) 5%;
       }
 
@@ -1342,7 +1641,7 @@
       .country-controls {
         gap: clamp(10px, 2vw, 15px);
         margin-top: clamp(15px, 3vw, 25px);
-      }
+      } */
 
       /* Process Section Responsive */
       .timeline-container {
@@ -1635,298 +1934,23 @@
   </section>
 
   <!-- GLOBE SECTION -->
-    <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
-    <script src="https://unpkg.com/globe.gl"></script>
+  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+  <script src="https://unpkg.com/globe.gl"></script>
 
-    <style>
-        /* ========================= */
-        /* SECTION */
-        /* ========================= */
+  <section class="globe-section">
+    <h2>One Partner. Three Major Markets.</h2><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br>
 
-        .globe-section {
-            padding: 100px 5%;
-            background: radial-gradient(circle at top, #0f2027, #08131c 60%);
-            text-align: center;
-            position: relative;
-        }
+    <div id="globeContainer" class="globe-wrapper"></div>
+    <br><br><br><br><br><br><br>
 
-        /* Heading */
-        .globe-section h2 {
-            font-size: 2.5rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-
-        .globe-section .subtitle {
-            font-size: 1.1rem;
-            color: #b0b0b0;
-            margin-bottom: 50px;
-            font-weight: 300;
-        }
-
-        /* Globe container */
-        .globe-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-            height: 500px;
-            margin: auto;
-        }
-
-        /* Prevent canvas overlap */
-        .globe-wrapper canvas {
-            position: relative !important;
-        }
-
-        /* ========================= */
-        /* LEFT COUNTRY PANEL */
-        /* ========================= */
-
-        .country-controls {
-            position: absolute;
-            left: 40px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            z-index: 20;
-        }
-
-        /* Button Design */
-        .country-btn {
-            position: relative;
-            padding: 14px 28px;
-            border-radius: 40px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-            letter-spacing: 1px;
-            color: white;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            transition: all 0.4s ease;
-            overflow: hidden;
-        }
-
-        /* Sliding glow animation */
-        .country-btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -120%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transform: skewX(-20deg);
-            transition: 0.6s;
-        }
-
-        .country-btn:hover::before {
-            left: 120%;
-        }
-
-        /* Hover Effect */
-        .country-btn:hover {
-            transform: translateX(10px) scale(1.05);
-            background: linear-gradient(45deg, #00c6ff, #0072ff);
-            box-shadow: 0 0 25px rgba(0, 198, 255, 0.6);
-        }
-
-        /* Active State */
-        .country-btn.active {
-            background: linear-gradient(45deg, #ff9800, #ffc107);
-            box-shadow: 0 0 30px rgba(255, 193, 7, 0.8);
-            transform: translateX(15px) scale(1.08);
-        }
-
-        /* Smooth fade-in animation */
-        .country-btn {
-            opacity: 0;
-            transform: translateX(-40px);
-            animation: slideIn 0.8s forwards;
-        }
-
-        .country-btn:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .country-btn:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .country-btn:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        @keyframes slideIn {
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* ========================= */
-        /* LOCATION TOOLTIP STYLES */
-        /* ========================= */
-
-        .location-tooltip {
-            background: rgba(15, 32, 39, 0.95);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 198, 255, 0.4);
-            border-radius: 10px;
-            padding: 14px 16px;
-            color: white;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            white-space: normal;
-            max-width: 280px;
-            box-shadow: 0 8px 32px rgba(0, 198, 255, 0.15);
-        }
-
-        /* Responsive */
-        @media(max-width: 900px) {
-            .country-controls {
-                position: relative;
-                flex-direction: row;
-                justify-content: center;
-                left: 0;
-                top: auto;
-                transform: none;
-                margin-top: 40px;
-            }
-        }
-    </style>
-
-    <section class="globe-section">
-
-        <h2>One Partner. Three Major Markets.</h2>
-        <p class="subtitle">We understand the local nuances that make global businesses successful.</p>
-
-        <div id="globeContainer" class="globe-wrapper"></div>
-
-        <div class="country-controls">
-            <button class="country-btn" data-country="india">🇮🇳 India</button>
-            <button class="country-btn" data-country="usa">🇺🇸 USA</button>
-            <button class="country-btn" data-country="uae">🇦🇪 UAE</button>
-        </div>
-
-    </section>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-
-            const globeContainer = document.getElementById('globeContainer');
-
-            const globe = Globe()(globeContainer)
-                .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-                .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
-                .backgroundColor('#08131c')
-                .pointsData([])
-                .pointAltitude(0.02)
-                .pointRadius(0.6)
-                .pointColor(() => '#ff4d4d');
-
-            globe.controls().autoRotate = true;
-            globe.controls().autoRotateSpeed = 0.5;
-
-            const controls = globe.controls();
-            controls.enableZoom = false;
-            controls.enablePan = false;
-            controls.minDistance = 300;
-            controls.maxDistance = 300;
-
-            // 🌍 Office locations
-            const countries = {
-                india: {
-                    lat: 12.9629,
-                    lng: 77.5775,
-                    flag: '🇮🇳',
-                    name: 'India'
-                },
-                usa: {
-                    lat: 40.7128,
-                    lng: -74.0060,
-                    flag: '🇺🇸',
-                    name: 'USA'
-                },
-                uae: {
-                    lat: 25.2048,
-                    lng: 55.2708,
-                    flag: '🇦🇪',
-                    name: 'UAE'
-                }
-            };
-
-            const descriptions = {
-                india: "Deep expertise in GST compliance, cost-optimized support models, rapid customizations, and e-invoicing.",
-                usa: "High-scale cloud performance, security patching, Microsoft 365 synergy, and SOC-2 readiness.",
-                uae: "VAT-compliant financial structures, localized supply chain optimizations, and Free Zone accounting."
-            };
-
-            document.querySelectorAll('.country-btn').forEach(btn => {
-                btn.addEventListener('click', function () {
-
-                    const key = this.dataset.country;
-                    const data = countries[key];
-
-                    // active state
-                    document.querySelectorAll('.country-btn')
-                        .forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-
-                    globe.controls().autoRotate = false;
-
-                    // rotate globe
-                    globe.pointOfView(
-                        { lat: data.lat, lng: data.lng, altitude: 1.6 },
-                        1800
-                    );
-
-                    // show red dot
-                    globe.pointsData([{ lat: data.lat, lng: data.lng }]);
-
-                    // clear old labels
-                    globe.htmlElementsData([]);
-
-                    // add description next to dot
-                    globe.htmlElementsData([{
-                        lat: data.lat,
-                        lng: data.lng,
-                        description: descriptions[key],
-                        name: data.name
-                    }])
-                        .htmlLat(d => d.lat)
-                        .htmlLng(d => d.lng)
-                        .htmlAltitude(() => 0.03)
-                        .htmlElement(d => {
-                            const wrapper = document.createElement("div");
-
-                            wrapper.style.transform = "translate(16px,-10px)";
-                            wrapper.style.display = "flex";
-                            wrapper.style.alignItems = "flex-start";
-                            wrapper.style.gap = "10px";
-                            wrapper.style.whiteSpace = "nowrap";
-
-                            wrapper.innerHTML = `
-                    <span style="font-size:24px; flex-shrink:0; margin-top:2px;">📍</span>
-                    <div class="location-tooltip">
-                        <strong style="color: #00c6ff;">${d.name}</strong><br>
-                        ${d.description}
-                    </div>
-                `;
-
-                            return wrapper;
-                        });
-
-                });
-            });
-
-        });
-    </script>
-
+    <div class="country-controls">
+      <button class="country-btn" data-country="india">🇮🇳 India</button>
+      <button class="country-btn" data-country="usa">🇺🇸 USA</button>
+      <button class="country-btn" data-country="uae">🇦🇪 UAE</button>
+    </div>
+  </section>
 
   <!-- PROCESS SECTION -->
   <section class="process-section">
