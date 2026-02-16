@@ -512,18 +512,19 @@
 
     /* ========== GLOBE SECTION ========== */
     .globe-section {
-      padding: 60px 5%;
+      padding: clamp(60px, 10vw, 100px) 5%;
       background: radial-gradient(circle at top, #0f2027, #08131c 60%);
       text-align: center;
       position: relative;
-      width: 100%;
+      /* width: 100%; */
       overflow: hidden;
     }
 
     .globe-section h2 {
       font-size: clamp(1.5rem, 4vw, 2.5rem);
       color: #ffffff;
-      margin-bottom: 15px;
+      margin-bottom: clamp(40px, 6vw, 60px);
+      line-height: 1.4;
     }
 
     .globe-section .subtitle {
@@ -535,7 +536,7 @@
 
     .globe-wrapper {
       position: relative;
-      width: 100%;
+      /* width: 100%; */
       height: clamp(200px, 35vh, 350px);
       margin: 0 auto clamp(20px, 3vw, 40px);
       overflow: visible;
@@ -769,7 +770,7 @@
     }
 
     .content-box:nth-child(4) {
-      top: -180px;
+      top: -170px;
       left: 74%;
     }
 
@@ -1427,13 +1428,14 @@
 
     /* Globe Section */
     .globe-section {
-      padding: clamp(40px, 8vw, 80px) clamp(15px, 5vw, 80px);
+      padding: clamp(50px, 10vw, 100px) clamp(15px, 5vw, 80px);
     }
 
     .globe-section h2 {
       font-size: clamp(1.4rem, 4.5vw, 2.8rem);
-      margin-bottom: clamp(30px, 4vw, 50px);
+      margin-bottom: clamp(40px, 6vw, 60px);
       color: #ffffff;
+      line-height: 1.4;
     }
 
     .globe-wrapper {
@@ -1664,7 +1666,11 @@
 
       /* Globe Tablet */
       .globe-section {
-        padding: 40px 5%;
+        padding: clamp(50px, 10vw, 80px) 5%;
+      }
+
+      .globe-section h2 {
+        margin-bottom: clamp(35px, 5vw, 50px);
       }
 
       .globe-wrapper {
@@ -1761,7 +1767,13 @@
 
       /* Globe Mobile */
       .globe-section {
-        padding: 40px 5%;
+        padding: clamp(50px, 8vw, 80px) 5%;
+      }
+
+      .globe-section h2 {
+        font-size: clamp(1.2rem, 5vw, 2rem);
+        margin-bottom: clamp(35px, 5vw, 50px);
+        line-height: 1.4;
       }
 
       .globe-wrapper {
@@ -1769,11 +1781,11 @@
         height: clamp(180px, 50vw, 280px);
         margin: 0 auto clamp(15px, 2vw, 25px);
       }
-
+/* 
       .globe-wrapper canvas {
         width: 100%;
         height: 100%;
-      }
+      } */
 
       .country-controls {
         flex-direction: row;
@@ -1968,7 +1980,9 @@
   <script src="https://unpkg.com/globe.gl"></script>
 
   <section class="globe-section">
-    <h2>One Partner. Three Major Markets.<br><br><br><br><br><br></h2>
+    <h2>One Partner. Three Major Markets.</h2><br><br><br><br><br>
+    <br><br><br><br><br><br>
+    <br>
 
     <div id="globeContainer" class="globe-wrapper"></div>
 
@@ -1989,7 +2003,7 @@
         <div class="content-box show">
           <div class="content-title">Assessment</div>
           <div class="content-subtitle">Full Audit</div>
-          <ul class="content-list" style="justify-items: left;">
+          <ul class="content-list" style="text-align:justify">
             <li>Environment audit</li>
             <li>Gap analysis</li>
             <li>Compliance check</li>
@@ -2000,7 +2014,7 @@
         <div class="content-box">
           <div class="content-title">Opportunity</div>
           <div class="content-subtitle">Setup Phase</div>
-          <ul class="content-list " style="justify-items: left;">
+          <ul class="content-list " style="text-align:justify">
             <li>Kick-off workshops</li>
             <li>Access setup</li>
             <li>SLA definition</li>
@@ -2011,7 +2025,7 @@
         <div class="content-box">
           <div class="content-title">Optimisation</div>
           <div class="content-subtitle">Performance</div>
-          <ul class="content-list" style="justify-items: left;">
+          <ul class="content-list" style="text-align:justify">
             <li>Proactive monitoring</li>
             <li>Performance tuning</li>
             <li>Automation setup</li>
@@ -2022,7 +2036,7 @@
         <div class="content-box">
           <div class="content-title">Reporting</div>
           <div class="content-subtitle">Insights</div>
-          <ul class="content-list" style="justify-items: left;">
+          <ul class="content-list" style="text-align:justify">
             <li>Monthly dashboards</li>
             <li>SLA tracking</li>
             <li>Incident analysis</li>
@@ -2072,7 +2086,7 @@
 
         <!-- NODE 4 -->
         <circle cx="1060" cy="150" r="40" class="node-circle" />
-        <foreignObject x="1035" y="135" width="50" height="50">
+        <foreignObject x="1035" y="145" width="50" height="50">
           <i class="fa-solid fa-file-lines node-icon"></i>
         </foreignObject>
 
